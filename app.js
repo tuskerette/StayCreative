@@ -13,6 +13,15 @@ var routes = require('./routes/index');
 var entries = require('./routes/entries');
 var auth = require('./routes/auth');
 
+var MongoURI = process.env.MONGO_URI || 'mongodb://localhost/staycreative';
+mongoose.connect(MongoURI, function(err, res) {
+    if(err) {
+        console.log('ERROR connecting to: ' + MongoURI + '. ' + err);
+    } else {
+        console.log('MongoDB connected successfully to ' + MongoURI);
+    }
+});
+
 var app = express();
 
 // view engine setup

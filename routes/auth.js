@@ -14,13 +14,17 @@ router.route('/register')
       }
 
       req.login(account, function(err) {
-        res.redirect('/contacts');
+        res.redirect('/');
       });
     })
   })
 
-router.get('/login', function(req, res, next) {
-  res.render('login', {user: req.user});
+  router.route('/login')
+  .get(function(req, res, next){
+    res.render('login', {user: req.user});
+  })
+  .post(passport.authenticate('local'), function(req, res) {
+  res.redirect('/');
 });
 
 router.all('/logout', function(req, res, next) {
