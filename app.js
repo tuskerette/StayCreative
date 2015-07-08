@@ -4,9 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var mongoose = require('mongoose');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var entries = require('./routes/entries');
+var auth = require('./routes/auth');
 
 var app = express();
 
@@ -21,11 +26,27 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({
+    secret: 'happy day',
+    resave: true,
+    saveUninitialized: false
+}));
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Passport configuration
+app.use(passport.initialize());
+app.use(passport.session());
+
+var Account = require('./models/account');
+passport.use(Account.createStrategy());
+
+passport.serializeUser(Account.serializeUser());
+passport.deserializeUser(Account.deserializeUser());
+
 app.use('/', routes);
-app.use('/users', users);
+app.use('/entries/', entries);
+app.use('/auth/', auth);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
