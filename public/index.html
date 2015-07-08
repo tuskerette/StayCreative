@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html ng-app="stayCreativeApp">
+<html ng-app="stayCreative">
 <head>
   <title>Stay Creative</title>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
-  <!-- <script src='app/app.js'></script> -->
-</head>
-<body background="dot7.png">
+  <script src='app/app.js'></script>
 
-<div ng-view></div>
+</head>
+<body background="dot7.png" ng-controller="entryController as entry">
+
+<div ng-view>
+  <h2>Character name: {{entry.dailypost.characterName}}</h2>
+  <p>Character bio: {{entry.dailypost.characterBio}}</p>
+  <p>Creation: {{entry.dailypost.characterCreation}}</p>
+
+</div>
 
 
 
