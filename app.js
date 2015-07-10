@@ -10,7 +10,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 var routes = require('./routes/index');
-var entries = require('./routes/entries');
+var myposts = require('./routes/myposts');
 var auth = require('./routes/auth');
 
 var MongoURI = process.env.MONGO_URI || 'mongodb://localhost/staycreative';
@@ -54,7 +54,7 @@ passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
 app.use('/', routes);
-app.use('/entries/', entries);
+app.use('/myposts/', myposts);
 app.use('/auth/', auth);
 
 // catch 404 and forward to error handler

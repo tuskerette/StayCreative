@@ -2,37 +2,13 @@
 <html ng-app="stayCreative">
 <head>
   <title>Stay Creative</title>
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="libs/angular/angular.js"></script>
+  <script src="libs/angular-route/angular-route.js"></script>
   <script src='app/app.js'></script>
 
 </head>
-<body background="dot7.png" ng-controller="entryController as entry">
-
-<div ng-view>
-  <h2>Character name: {{entry.dailypost.characterName}}</h2>
-  <p>Character bio: {{entry.dailypost.characterBio}}</p>
-  <p>Creation: {{entry.dailypost.characterCreation}}</p>
-
-</div>
-
-
-
-
-<!-- <div>Please login<br />
-  <form role="form", action="/auth/login", method="post">
-    <div class="form-group">
-      <label for="username">Username</label>
-      <input id="username" class="form-control" name="username" type="text">
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input id="password" class="form-control" name="password" type="password">
-    </div>
-    <button class="btn btn-default" type="submit" value="Log In">Log In</button>
-
-  </form>
-</div> -->
+<body>
+  <div ng-view></div>
 
 
 </body>

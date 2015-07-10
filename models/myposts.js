@@ -1,13 +1,13 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var entrySchema = new Schema({
+var myPostSchema = new Schema({
   characterName: String,
   characterBio: String,
   characterCreation: String,
-  characterPhoto: String,
-  creationPhoto: String,
-  song: String,
+  characterPhotoUrl: String,
+  creationPhotoUrl: String,
+  songURL: String,
   postedDate: {
       type: Date,
       'default': Date.now
@@ -17,4 +17,4 @@ var entrySchema = new Schema({
 
 });
 
-module.exports = mongoose.model('Entry', entrySchema);
+module.exports = mongoose.model('MyPost', myPostSchema);
