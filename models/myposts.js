@@ -9,12 +9,11 @@ var myPostSchema = new Schema({
   creationPhotoUrl: String,
   songURL: String,
   postedDate: {
-      type: Date,
-      'default': Date.now
+      type: Date
     },
-
-
-
+  editedDate: {
+      type: Date
+    }
 });
 
 module.exports = mongoose.model('MyPost', myPostSchema);

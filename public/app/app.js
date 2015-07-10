@@ -3,28 +3,27 @@
 
   app.controller('myPostsController', function($http) {
     this.myPostsArray = myPostsArray;
+    this.newPost = {};
+    var self = this;
+    this.addPost = function() {
 
-    this.newPost = [];
-    this.addPost = function(formEntry) {
-      this.newPost.push(formEntry);
-
-    $http.post("/myposts/add", formEntry)
-    .success(function (data, status, headers, config) {
-      console.log("posted successfully");
-      this.message = "The post was created successfully!";
-    })
-    .error(function (data, status, headers, config) {
-      switch(status) {
-        case 401: {
-          this.message = "You must be authenticated!"
-            break; }
-        case 500: {
-          this.message = "Something went wrong!";
-          break;
-    } }
-      console.log(data, status);
-    });
-};
+      $http.post("/myposts/add", self.newPost)
+      .success(function (data, status, headers, config) {
+        console.log("posted successfully");
+        this.message = "The post was created successfully!";
+      })
+      .error(function (data, status, headers, config) {
+        switch(status) {
+          case 401:
+            this.message = "You must be authenticated!"
+              break;
+          case 500:
+            this.message = "Something went wrong!";
+            break;
+        }
+        console.log(data, status);
+      });
+    };
 
 
   });
