@@ -62,7 +62,7 @@
               controller: 'myPostsController as myPostsCtrl',
               templateUrl: 'app/views/mypost.html'
             }).when('/static_page/:id', {
-              controller: 'myPostsController as myPostsCtrl',
+              controller: 'StaticPageController as staticPageCtrl',
               templateUrl: 'app/views/static_page.html'
       }).otherwise({redirectTo: '/'});
     });

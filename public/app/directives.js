@@ -7,8 +7,8 @@ angular.module('app.directives', [])
       // scope: {}, // {} = isolate, true = child, false/undefined = no change
       controller: ['$scope', '$http', function($scope, $http){
         $http.get('static_pages/static_pages.json').success(function(data){
-          console.log(data);
           $scope.pages = data;
+          console.log($scope.pages);
         });
       }],
       // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements

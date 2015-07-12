@@ -43,4 +43,10 @@ angular.module('app.controllers', ['app.directives'])
     };
      getAllPosts();
 
-  });
+  })
+  .controller('StaticPageController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http){
+    $http.get('static_pages/static_pages.json').success(function(data){
+      $scope.page = data[$routeParams.id];
+    })
+
+  }]);
