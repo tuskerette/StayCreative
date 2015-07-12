@@ -3,9 +3,14 @@ var router = express.Router();
 var MyPosts = require('../models/myposts');
 
 // GET request to show all the posts
-router.get('/', function(req, res) {
-  MyPosts.find( function(err, myposts) {
-    res.json(myposts);
+router.get('/myposts', function(req, res) {
+  MyPosts.find(function(err, myposts) {
+    if(err) {
+      res.status(500).send("Error finding all posts: " + err);
+    } else {
+      console.log("the result is " + myposts);
+      res.json(myposts);
+    }
   })
 });
 
@@ -14,15 +19,14 @@ router.post('/add', function(req, res) {
     MyPosts.create({
       characterName: req.body.characterName,
       characterBio: req.body.characterBio,
-      characterCreation: req.body.characterCreation,
       characterPhotoUrl: req.body.characterPhoto,
-      creationPhotoUrl: req.body.creationPhoto,
-      song: req.body.song,
+      invention: req.body.invention,
+      songUrl: req.body.songUrl,
       postedDate: Date.now()
 
     },function(err, mypost) {
       if(err) {
-        res.status(500).send('Error saving new post: ' + err);
+        res.status(500).send("Error saving new post: " + err);
       } else {
         res.status(200).send("New post created");
       }
@@ -30,7 +34,7 @@ router.post('/add', function(req, res) {
 });
 
 
-
+// Routes for post by :id
 router.route('/:mypost_id')
   .all(function(req, res, next) {
     res.locals.mypost_id = req.params.mypost_id;
@@ -45,17 +49,16 @@ router.route('/:mypost_id')
     var mp = res.locals.mypost;
     mp.characterName = req.body.characterName || mp.characterName,
     mp.characterBio =  req.body.characterBio || mp.characterBio,
-    mp.characterCreation = req.body.characterCreation || mp.characterCreation,
     mp.characterPhoto = req.body.characterPhoto || mp.characterPhoto,
-    mp.creationPhoto = req.body.creationPhoto || mp.creationPhoto,
-    mp.song = req.body.song || mp.song,
+    mp.invention = req.body.invention || mp.invention,
+    mp.songUrl = req.body.songUrl || mp.songUrl,
     mp.editedDate = Date.now();
 
     mp.save(function(err) {
       if(err) {
-        res.status(500).send('Error saving post: ' + err);
+        res.status(500).send("Error saving post: " + err);
       } else {
-        res.status(200).send('Post edited successfully');
+        res.status(200).send("Post edited successfully");
       }
     });
   }).delete(function(req, res) {

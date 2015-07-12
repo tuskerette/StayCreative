@@ -1,11 +1,16 @@
-  <h1>Posts hard-coded 'GET'</h1>
-  <div ng-repeat="post in myPostsCtrl.myPostsArray">
+  <h1>All my posts</h1>
+
+  <div ng-repeat="post in myPostsCtrl.myposts">
     <ul>
       <li><h3>Character name: {{post.characterName}}</h3></li>
       <li>Character bio: {{post.characterBio}}</li>
       <li><img ng-src="{{post.characterPhotoUrl}}" /></li>
-      <li>Creation: {{post.characterCreation}}</li>
-      <li><img ng-src="{{post.creationPhotoUrl}}" /></li>
+      <li>Invention: {{post.invention}}</li>
+      <li>Song: {{post.songUrl}}</li>
+      <li>Posted on: {{post.postedDate | date }}</li>
+      <li>If edited... edited on: {{post.editedDate | date }}</li>
     </ul>
+    <button>Show Post</button>
+    <button>Edit Post</button>
     <hr />
   </div>

@@ -4,14 +4,20 @@
   <input type="text" name="characterName" ng-model="myPostsCtrl.newPost.characterName" required /><br />
   <label for="characterBio">Character Bio</label>
   <textarea name="characterBio" ng-model="myPostsCtrl.newPost.characterBio" required></textarea><br />
-  <label for="characterCreation">Character Creation</label>
+  <label for="characterPhotoUrl">Character Photo Upload</label>
+  <div>File upload goes here</div><br />
+  <label for="invention">Invention</label>
+  <textarea name="invention" ng-model="myPostsCtrl.newPost.invention" required></textarea><br />
+  <label for="songUrl">Song Upload</label>
+  <div>SOng File upload goes here</div><br />
 
   <input type="submit" value="submit" ng-click="myPostsCtrl.addPost()"/>
 </form>
 
-TEMP<br />
+TEMPORARY BINDING<br />
 To make sure this is working<br />
 Results: <br />
 {{myPostsCtrl.newPost.characterName}}<br />
 {{myPostsCtrl.newPost.characterBio}}<br />
+{{myPostsCtrl.newPost.invention}}<br />
 

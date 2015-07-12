@@ -4,10 +4,9 @@ var Schema = mongoose.Schema;
 var myPostSchema = new Schema({
   characterName: String,
   characterBio: String,
-  characterCreation: String,
   characterPhotoUrl: String,
-  creationPhotoUrl: String,
-  songURL: String,
+  invention: String,
+  songUrl: String,
   postedDate: {
       type: Date
     },
