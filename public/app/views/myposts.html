@@ -4,13 +4,16 @@
     <ul>
       <li><h3>Character name: {{post.characterName}}</h3></li>
       <li>Character bio: {{post.characterBio}}</li>
-      <li><img ng-src="{{post.characterPhotoUrl}}" /></li>
+      <li>Character picture: <img ng-src="{{post.characterPhotoUrl}}" /></li>
       <li>Invention: {{post.invention}}</li>
       <li>Song: {{post.songUrl}}</li>
       <li>Posted on: {{post.postedDate | date }}</li>
       <li>If edited... edited on: {{post.editedDate | date }}</li>
     </ul>
-    <button>Show Post</button>
-    <button>Edit Post</button>
+    <a href="#myposts/{{post._id}}">Continue reading: show post</a>
     <hr />
   </div>
+
+
+<!-- add filter, show from newer to older.
+add search bar -->

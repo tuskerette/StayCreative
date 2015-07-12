@@ -1,0 +1,10 @@
+<div>
+  <a href="#/">NAVIGATION BAR *** Stay Creative</a>
+  <ul>
+    <li>Login</li>
+    <li>Register</li>
+  </ul>
+  <ul>
+    <li ng-repeat="page in pages"><a href="#/static_page/{{ pages.indexOf(page) }}">{{ page.title }}</a></li>
+  </ul>
+</div>

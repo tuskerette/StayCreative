@@ -49,7 +49,7 @@ router.route('/:mypost_id')
     var mp = res.locals.mypost;
     mp.characterName = req.body.characterName || mp.characterName,
     mp.characterBio =  req.body.characterBio || mp.characterBio,
-    mp.characterPhoto = req.body.characterPhoto || mp.characterPhoto,
+    mp.characterPhotoUrl = req.body.characterPhotoUrl || mp.characterPhotoUrl,
     mp.invention = req.body.invention || mp.invention,
     mp.songUrl = req.body.songUrl || mp.songUrl,
     mp.editedDate = Date.now();
