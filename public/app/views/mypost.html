@@ -9,7 +9,7 @@
       <li ng-hide="!myPostsCtrl.onePost.editedDate">Edited on: {{ myPostsCtrl.onePost.editedDate | date }}</li>
     </ul>
     <a href="#list">Back to my Posts</a>
-    <button ng-click="myPostsCtrl.editOnePost(myPostsCtrl.onePost._id)">Edit Post</button>
-    <button ng-click="myPostsCtrl.deleteOnePost(myPostsCtrl.onePost._id)">Delete Post</button>
+    <button ng-click="myPostsCtrl.editPost(myPostsCtrl.onePost._id)">Edit Post</button>
+    <button ng-click="myPostsCtrl.deletePost(myPostsCtrl.onePost._id)">Delete Post</button>
 
   </div>

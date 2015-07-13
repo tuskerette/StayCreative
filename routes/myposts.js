@@ -52,11 +52,13 @@ router.route('/:mypost_id')
     mp.songUrl = req.body.songUrl || mp.songUrl,
     mp.editedDate = Date.now();
 
-    mp.save(function(err) {
+    mp.save(function(err, result) {
       if(err) {
         res.status(500).send("Error saving post: " + err);
       } else {
-        res.status(200).send("Post edited successfully");
+        res.json(result);
+        console.log(result);
+        // res.status(200).send("Post edited successfully");
       }
     });
   }).delete(function(req, res) {

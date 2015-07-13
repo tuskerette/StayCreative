@@ -18,15 +18,15 @@ myPostsController.prototype.addPost = function() {
     .success(function (data, status, headers, config) {
       console.log("Successfully posted");
       self.onePost = data;
-      self.location.path("/myposts/"+data._id);
+      self.location.path("/myposts/" + data._id);
     })
     .error(function (data, status, headers, config) {
       switch(status) {
         case 401:
-          this.message = "You must be authenticated!"
+          self.message = "You must be authenticated!"
             break;
         case 500:
-          this.message = "Something went wrong!";
+          self.message = "Something went wrong!";
           break;
       }
       console.log(data, status);
@@ -34,18 +34,18 @@ myPostsController.prototype.addPost = function() {
 };
 
 myPostsController.prototype.getAllPosts = function() {
-    var mps = this;
+    var self = this;
      this.http.get("/myposts/myposts")
        .success(function(data, status, headers, config) {
-         mps.myPosts = data;
+         self.myPosts = data;
        })
        .error(function(data, status, headers, config) {
          switch(status) {
            case 401:
-             this.message = "You must be authenticated!"
+             self.message = "You must be authenticated!"
             break;
            case 500:
-             this.message = "Something went wrong!";
+             self.message = "Something went wrong!";
             break;
        }
          console.log(data, status);
@@ -53,25 +53,25 @@ myPostsController.prototype.getAllPosts = function() {
 };
 
 myPostsController.prototype.getOnePost = function(postId) {
-var op = this;
+var self = this;
 this.http.get("/myposts/" + postId)
   .success(function(data, status, headers, config) {
-      op.onePost = data;
+      self.onePost = data;
      })
      .error(function(data, status, headers, config) {
        switch(status) {
          case 401:
-           this.message = "You must be authenticated!"
+           self.message = "You must be authenticated!"
           break;
          case 500:
-           this.message = "Something went wrong!";
+           self.message = "Something went wrong!";
           break;
      }
        console.log(data, status);
     });
 };
 
-myPostsController.prototype.deleteOnePost = function(postId) {
+myPostsController.prototype.deletePost = function(postId) {
 var self = this;
 this.http.delete("/myposts/" + postId)
   .success(function(data, status, header, config) {
@@ -81,31 +81,55 @@ this.http.delete("/myposts/" + postId)
   .error(function(data, status, headers, config) {
     switch(status) {
       case 401:
-        this.message = "You must be authenticated!"
+        self.message = "You must be authenticated!"
         break;
       case 500:
-        this.message = "Something went wrong!";
+        self.message = "Something went wrong!";
         break;
     }
       console.log(data, status);
   });
 };
 
-myPostsController.prototype.editOnePost = function(postId) {
-
-
+myPostsController.prototype.editPost = function(postId) {
+  var self = this;
+    this.http.get("/myposts/" + postId)
+    .success(function (data, status, headers, config) {
+      self.location.path("/edit/" + data._id);
+    })
+    .error(function (data, status, headers, config) {
+      switch(status) {
+        case 401:
+          self.message = "You must be authenticated!"
+            break;
+        case 500:
+          self.message = "Something went wrong!";
+          break;
+      }
+      console.log(data, status);
+    });
 };
 
+myPostsController.prototype.updatePost = function(postId, editedPost) {
+  var self = this;
+    this.http.patch("/myposts/" + postId, editedPost)
+    .success(function (data, status, headers, config) {
+      self.location.path("/myposts/" + data._id);
+      console.log("data is " + data);
+    })
+    .error(function (data, status, headers, config) {
+      switch(status) {
+        case 401:
+          self.message = "You must be authenticated!"
+            break;
+        case 500:
+          self.message = "Something went wrong!";
+          break;
+      }
+      console.log(data, status);
+    });
+};
 
-angular.module('app.controllers', ['app.directives'])
+angular.module('app.controllers', [])
   .controller('myPostsController', myPostsController)
 
-
-
-// CONTROLLER FOR STATIC PAGES
-  // .controller('StaticPageController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http){
-  //   $http.get('static_pages/static_pages.json').success(function(data){
-  //     $scope.page = data[$routeParams.id];
-  //   })
-
-  // }]);

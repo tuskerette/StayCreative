@@ -15,6 +15,9 @@
             }).when('/myposts/:id', {
               controller: 'myPostsController as myPostsCtrl',
               templateUrl: 'app/views/mypost.html'
+            }).when('/edit/:id', {
+              controller: 'myPostsController as myPostsCtrl',
+              templateUrl: 'app/views/editpost.html'
       }).otherwise({redirectTo: '/'});
     });
 })();
