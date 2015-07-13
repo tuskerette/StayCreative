@@ -2,7 +2,8 @@
   <a href="#newpost">Enter a New Post</a><br />
   <hr />
   <h5>All my posts</h5>
-  <div ng-repeat="post in myPostsCtrl.myPosts | orderBy:'postedDate':!reverse">
+  Filter: <input type="search" ng-model="search" placeholder="Search...">
+  <div ng-repeat="post in myPostsCtrl.myPosts | orderBy:'postedDate':!reverse | filter:search">
     <ul>
       <li><h5>Character name: {{post.characterName}}</h5></li>
       <li>Character bio: {{post.characterBio}}</li>
