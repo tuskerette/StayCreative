@@ -1,18 +1,45 @@
-<h3>New post entry</h3>
-<form>
-  <label for="characterName">Character Name</label>
-  <input type="text" name="characterName" ng-model="myPostsCtrl.newPost.characterName" required /><br />
-  <label for="characterBio">Character Bio</label>
-  <textarea name="characterBio" ng-model="myPostsCtrl.newPost.characterBio" required></textarea><br />
-  <label for="characterPhotoUrl">Character Photo Upload</label>
-  <div>File upload goes here</div><br />
-  <label for="invention">Invention</label>
-  <textarea name="invention" ng-model="myPostsCtrl.newPost.invention" required></textarea><br />
-  <label for="songUrl">Song Upload</label>
-  <div>SOng File upload goes here</div><br />
-
+<h5>New post entry</h5>
+<form class="col s12">
+  <div class="input-field col s6">
+    <label for="characterName">Character Name</label>
+    <input type="text" name="characterName" ng-model="myPostsCtrl.newPost.characterName" required /><br />
+  </div>
+  <div class="input-field col s6">
+    <textarea name="characterBio" ng-model="myPostsCtrl.newPost.characterBio" required class="materialize-textarea"></textarea>
+    <label for="characterBio">Character Bio</label>
+  </div>
+  <div class="input-field col s6">
+    <textarea name="invention" ng-model="myPostsCtrl.newPost.invention" required class="materialize-textarea"></textarea>
+    <label for="invention">Invention</label>
+  </div>
   <input type="submit" value="submit" ng-click="myPostsCtrl.addPost()"/>
 </form>
+
+<!-- characterPhotoUrl below -->
+<form action="#">
+  <div class="file-field input-field">
+    <input class="file-path validate" type="text"/>
+      <div class="btn">
+        <span>Picture Upload</span>
+        <input type="file" />
+      </div>
+    </div>
+</form>
+
+<!-- songUrl below -->
+<form action="#">
+  <div class="file-field input-field">
+    <input class="file-path validate" type="text"/>
+      <div class="btn">
+        <span>Song Upload</span>
+        <input type="file" />
+      </div>
+    </div>
+</form>
+<br />
+<br />
+<br />
+<hr />
 
 TEMPORARY BINDING<br />
 To make sure this is working<br />

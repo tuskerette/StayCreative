@@ -1,16 +1,18 @@
-  <h1>All my posts</h1>
-
-  <div ng-repeat="post in myPostsCtrl.myposts">
+  <h5>Enter a new Post</h5>
+  <a href="#newpost">Enter a New Post</a><br />
+  <hr />
+  <h5>All my posts</h5>
+  <div ng-repeat="post in myPostsCtrl.myPosts | orderBy:'postedDate':!reverse">
     <ul>
-      <li><h3>Character name: {{post.characterName}}</h3></li>
+      <li><h5>Character name: {{post.characterName}}</h5></li>
       <li>Character bio: {{post.characterBio}}</li>
       <li>Character picture: <img ng-src="{{post.characterPhotoUrl}}" /></li>
       <li>Invention: {{post.invention}}</li>
       <li>Song: {{post.songUrl}}</li>
-      <li>Posted on: {{post.postedDate | date }}</li>
-      <li>If edited... edited on: {{post.editedDate | date }}</li>
+      <li>Posted on: {{post.postedDate | date:'medium' }}</li>
+      <li ng-hide="!post.editedDate">Edited on: {{post.editedDate | date:'medium' }}</li>
     </ul>
-    <a href="#myposts/{{post._id}}">Continue reading: show post</a>
+    <a href="#myposts/{{post._id}}">Continue reading</a>
     <hr />
   </div>
 

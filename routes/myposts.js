@@ -8,7 +8,6 @@ router.get('/myposts', function(req, res) {
     if(err) {
       res.status(500).send("Error finding all posts: " + err);
     } else {
-      console.log("the result is " + myposts);
       res.json(myposts);
     }
   })
@@ -23,12 +22,11 @@ router.post('/add', function(req, res) {
       invention: req.body.invention,
       songUrl: req.body.songUrl,
       postedDate: Date.now()
-
     },function(err, mypost) {
       if(err) {
         res.status(500).send("Error saving new post: " + err);
       } else {
-        res.status(200).send("New post created");
+        res.json(mypost);
       }
     });
 });

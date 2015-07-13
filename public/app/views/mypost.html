@@ -1,15 +1,15 @@
-  <h1>One post by :id</h1>
-
   <div>
     <ul>
-      <li>Character name: {{ myPostsCtrl.onepost.characterName }}</li>
-
-      <li>Character bio: {{ myPostsCtrl.onepost.characterBio }}</li>
-      <li><img ng-src="{{ myPostsCtrl.onepost.characterPhotoUrl }}" /></li>
-      <li>Invention: {{ myPostsCtrl.onepost.invention }}</li>
-      <li>Song: {{ myPostsCtrl.onepost.songUrl }}</li>
-      <li>Posted on: {{ myPostsCtrl.onepost.postedDate | date }}</li>
-      <li>If edited... edited on: {{ myPostsCtrl.onepost.editedDate | date }}</li>
+      <li>Character name: {{ myPostsCtrl.onePost.characterName }}</li>
+      <li>Character bio: {{ myPostsCtrl.onePost.characterBio }}</li>
+      <li>Character picture: <img ng-src="{{ myPostsCtrl.onePost.characterPhotoUrl }}" /></li>
+      <li>Invention: {{ myPostsCtrl.onePost.invention }}</li>
+      <li>Song: {{ myPostsCtrl.onePost.songUrl }}</li>
+      <li>Posted on: {{ myPostsCtrl.onePost.postedDate | date }}</li>
+      <li ng-hide="!myPostsCtrl.onePost.editedDate">Edited on: {{ myPostsCtrl.onePost.editedDate | date }}</li>
     </ul>
-    <button>Edit Post</button>
+    <a href="#list">Back to my Posts</a>
+    <button ng-click="myPostsCtrl.editOnePost(myPostsCtrl.onePost._id)">Edit Post</button>
+    <button ng-click="myPostsCtrl.deleteOnePost(myPostsCtrl.onePost._id)">Delete Post</button>
+
   </div>
