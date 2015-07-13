@@ -2,13 +2,14 @@
 
   <div>
     <ul>
-      <li><h3>Character name: {{post.characterName}}</h3></li>
-      <li>Character bio: {{post.characterBio}}</li>
-      <li><img ng-src="{{post.characterPhotoUrl}}" /></li>
-      <li>Invention: {{post.invention}}</li>
-      <li>Song: {{post.songUrl}}</li>
-      <li>Posted on: {{post.postedDate | date }}</li>
-      <li>If edited... edited on: {{post.editedDate | date }}</li>
+      <li>Character name: {{ myPostsCtrl.onepost.characterName }}</li>
+
+      <li>Character bio: {{ myPostsCtrl.onepost.characterBio }}</li>
+      <li><img ng-src="{{ myPostsCtrl.onepost.characterPhotoUrl }}" /></li>
+      <li>Invention: {{ myPostsCtrl.onepost.invention }}</li>
+      <li>Song: {{ myPostsCtrl.onepost.songUrl }}</li>
+      <li>Posted on: {{ myPostsCtrl.onepost.postedDate | date }}</li>
+      <li>If edited... edited on: {{ myPostsCtrl.onepost.editedDate | date }}</li>
     </ul>
     <button>Edit Post</button>
   </div>

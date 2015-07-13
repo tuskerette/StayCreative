@@ -52,7 +52,7 @@
       .when('/', {
               controller: 'myPostsController as myPostsCtrl',
               templateUrl: 'app/views/welcome.html'
-            }).when('/myposts', {
+            }).when('/list', {
               controller: 'myPostsController as myPostsCtrl',
               templateUrl: 'app/views/myposts.html'
             }).when('/newpost', {
