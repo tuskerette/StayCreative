@@ -21,7 +21,17 @@
       }).when('/edit/:id', {
         controller: 'myPostsController as myPostsCtrl',
         templateUrl: 'app/views/editpost.html'
+      }).when('/register', {
+        controller: 'authController as authCtrl',
+        templateUrl: 'app/views/register.html'
+      }).when('/login', {
+        controller: 'authController as authCtrl',
+        templateUrl: 'app/views/login.html'
       }).otherwise({redirectTo: '/'});
     });
 })();
+
+// $(document).ready(function() {
+//  $('.modal-trigger').leanModal();
+// });
 

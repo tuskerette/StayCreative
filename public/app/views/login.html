@@ -1,0 +1,12 @@
+<h5>Login</h5>
+<form name="loginForm" class="col s12" novalidate>
+  <div class="input-field col s6">
+    <label for="username">User Name</label>
+    <input type="text" name="username" ng-model="authCtrl.newPost.username" required />
+  </div>
+  <div class="input-field col s6">
+    <input type="text" name="password" ng-model="authCtrl.newPost.email" required />
+    <label for="password">Password</label>
+  </div>
+  <button ng-click="loginForm.$valid && authCtrl.loginUser()">Login</button>
+</form>

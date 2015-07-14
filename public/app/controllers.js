@@ -132,25 +132,42 @@ myPostsController.prototype.updatePost = function(postId, editedPost) {
 
 
 // Auth Controller
-// var authController = function($http) {
+var authController = function($http, $routeParams, $location) {
 
-// var user = {};
+this.newUser = {};
+this.location = $location;
+this.http = $http;
 
-// authController.prototype.login = function() {
-//   var self = this;
-//   this.http.post("/auth/login", self.user)
-//   .success(function(data) {
+authController.prototype.registerUser = function() {
+  var self = this;
+  this.http.post("/auth/register", self.newUser)
+  .success(function (data, status, headers, config) {
+      console.log("Successfully registered");
+      self.newUser = data;
+      self.location.path("/myposts");
+    })
+    .error(function (data, status, headers, config) {
+      switch(status) {
+        case 401:
+          self.message = "You must be authenticated!"
+            break;
+        case 500:
+          self.message = "Something went wrong!";
+          break;
+      }
+      console.log(data, status);
+    });
+};
 
-//   })
-
-// }
-
-// };
 
 
-angular.module('app.controllers', [])
+
+
+
+};
+
+angular.module('app.controllers', ['app.directives'])
+  .controller('authController', authController)
   .controller('myPostsController', myPostsController)
 
-// angular.module('app.controllers', [])
-//   .controller('authController', authController)
 
