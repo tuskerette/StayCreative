@@ -8,7 +8,7 @@ router.route('/register')
     res.render('register', {});
   })
   .post(function(req, res, next) {
-    Account.register(new Account({username: req.body.username}), req.body.password, function(err, account) {
+    Account.register(new Account({username: req.body.username, email: req.body.email}), req.body.password, function(err, account) {
       if(err) {
         return res.render('register', {account: account});
       }
@@ -32,5 +32,35 @@ router.all('/logout', function(req, res, next) {
   res.redirect('/');
 });
 
+// API routes for auth
+router.route('/api/register')
+  .post(function(req, res, next) {
+    Account.register(new Account({username: req.body.username, email: req.body.email}), req.body.password, function(err, account) {
+      if(err) {
+        return res.json({account: account});
+      }
+      req.login(account, function(err) {
+        if(err) {
+          console.log("error in establishing the session")
+        }
+        res.json(account);
+      });
+    })
+  })
+
+router.route('/api/login')
+  .get(function(req, res, next){
+    res.json({user: req.user});
+  })
+  .post(passport.authenticate('local'), function(req, res) {
+    res.json({user: req.user})
+    console.log("req.user is " + req.user);
+});
+
+router.all('/api/logout', function(req, res, next) {
+  req.logout();
+  // console.log("successfully logged out");
+  res.json({user: "user, you logged out successfully"});
+});
 
 module.exports = router;

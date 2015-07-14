@@ -17,9 +17,21 @@
     <div class="nav-wrapper">
       <a href="#/" class="brand-logo">Stay Creative</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+
+  <!-- if (user)
+      <li>You are logged in as {{ user.username }}</li>
+      <li><a href="#/auth/logout">Logout</a></li>
+  else
+    <li>
+      <a href="#/auth/login">Login</a></li>
+        or
+      <li><a href="#/auth/register">Register</a></li> -->
+
+
         <li><a href="#about">About</a></li>
-        <li><a href="#/">Login</a></li>
-        <li><a href="#/">Register</a></li>
+        <li><a href="/auth/login">Login</a></li>
+        <li><a href="/auth/register">Register</a></li>
       </ul>
     </div>
   </nav>

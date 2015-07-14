@@ -130,6 +130,27 @@ myPostsController.prototype.updatePost = function(postId, editedPost) {
     });
 };
 
+
+// Auth Controller
+// var authController = function($http) {
+
+// var user = {};
+
+// authController.prototype.login = function() {
+//   var self = this;
+//   this.http.post("/auth/login", self.user)
+//   .success(function(data) {
+
+//   })
+
+// }
+
+// };
+
+
 angular.module('app.controllers', [])
   .controller('myPostsController', myPostsController)
+
+// angular.module('app.controllers', [])
+//   .controller('authController', authController)
 

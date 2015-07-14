@@ -4,11 +4,12 @@
   <br />
   <br />
   <h4>All my posts</h4>
-  Search: <input type="search" ng-model="search" placeholder="Search...">
+  <!-- Search: <input type="search" ng-model="search" placeholder="Search..."> -->
   <br />
   <br />
   <br />
-  <div ng-repeat="post in myPostsCtrl.myPosts | orderBy:'postedDate':!reverse | filter:search">
+  <!-- <div ng-repeat="post in myPostsCtrl.myPosts | orderBy:'postedDate':!reverse | filter:search"> -->
+  <div ng-repeat="post in myPostsCtrl.myPosts | orderBy:'postedDate':!reverse">
     <ul>
       <li><h5>Character name: {{post.characterName}}</h5></li>
       <li>Character bio: {{post.characterBio}}</li>
@@ -21,6 +22,3 @@
     <hr />
   </div>
 
-
-<!-- add filter, show from newer to older.
-add search bar -->
