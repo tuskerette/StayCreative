@@ -6,7 +6,6 @@ var myPostSchema = new Schema({
   characterBio: String,
   characterPhotoUrl: String,
   invention: String,
-  songUrl: String,
   postedDate: {
       type: Date
     },

@@ -6,6 +6,9 @@
       .when('/', {
         controller: 'myPostsController as myPostsCtrl',
         templateUrl: 'app/views/welcome.html'
+      }).when('/about', {
+        controller: 'myPostsController as myPostsCtrl',
+        templateUrl: 'app/views/about.html'
       }).when('/list', {
         controller: 'myPostsController as myPostsCtrl',
         templateUrl: 'app/views/myposts.html'

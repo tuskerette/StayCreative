@@ -20,7 +20,6 @@ router.post('/add', function(req, res) {
       characterBio: req.body.characterBio,
       characterPhotoUrl: req.body.characterPhoto,
       invention: req.body.invention,
-      songUrl: req.body.songUrl,
       postedDate: Date.now()
     },function(err, mypost) {
       if(err) {
@@ -49,7 +48,6 @@ router.route('/:mypost_id')
     mp.characterBio =  req.body.characterBio || mp.characterBio,
     mp.characterPhotoUrl = req.body.characterPhotoUrl || mp.characterPhotoUrl,
     mp.invention = req.body.invention || mp.invention,
-    mp.songUrl = req.body.songUrl || mp.songUrl,
     mp.editedDate = Date.now();
 
     mp.save(function(err, result) {

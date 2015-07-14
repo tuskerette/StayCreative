@@ -1,15 +1,19 @@
-  <h5>Enter a new Post</h5>
+  <h4>Enter a new Post</h4>
   <a href="#newpost">Enter a New Post</a><br />
-  <hr />
-  <h5>All my posts</h5>
-  Filter: <input type="search" ng-model="search" placeholder="Search...">
+  <br />
+  <br />
+  <br />
+  <h4>All my posts</h4>
+  Search: <input type="search" ng-model="search" placeholder="Search...">
+  <br />
+  <br />
+  <br />
   <div ng-repeat="post in myPostsCtrl.myPosts | orderBy:'postedDate':!reverse | filter:search">
     <ul>
       <li><h5>Character name: {{post.characterName}}</h5></li>
       <li>Character bio: {{post.characterBio}}</li>
       <li>Character picture: <img ng-src="{{post.characterPhotoUrl}}" /></li>
       <li>Invention: {{post.invention}}</li>
-      <li>Song: {{post.songUrl}}</li>
       <li>Posted on: {{post.postedDate | date:'medium' }}</li>
       <li ng-hide="!post.editedDate">Edited on: {{post.editedDate | date:'medium' }}</li>
     </ul>
