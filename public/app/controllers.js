@@ -133,40 +133,86 @@ myPostsController.prototype.updatePost = function(postId, editedPost) {
 
 // Auth Controller
 var authController = function($http, $routeParams, $location) {
-
+var currentUser = false;
 this.newUser = {};
+this.returningUser = {};
 this.location = $location;
 this.http = $http;
 
-authController.prototype.registerUser = function() {
-  var self = this;
-  this.http.post("/auth/register", self.newUser)
-  .success(function (data, status, headers, config) {
-      console.log("Successfully registered");
-      self.newUser = data;
-      self.location.path("/myposts");
-    })
-    .error(function (data, status, headers, config) {
-      switch(status) {
-        case 401:
-          self.message = "You must be authenticated!"
+  authController.prototype.registerUser = function() {
+    var self = this;
+    this.http.post("/auth/register", self.newUser)
+    .success(function (data, status, headers, config) {
+        console.log("Successfully registered");
+        self.newUser = data;
+        self.location.path("/myposts");
+      })
+      .error(function (data, status, headers, config) {
+        switch(status) {
+          case 401:
+            self.message = "You must be authenticated!"
+              break;
+          case 500:
+            self.message = "Something went wrong!";
             break;
-        case 500:
-          self.message = "Something went wrong!";
-          break;
-      }
-      console.log(data, status);
-    });
+        }
+        console.log(data, status);
+      });
+  };
+
+  authController.prototype.loginUser = function() {
+    var self = this;
+    this.http.post("/auth/login", self.returningUser)
+    .success(function (data, status, headers, config) {
+        console.log("Successfully logged in");
+        self.returningUser = data;
+        setUser(self.returningUser);
+        self.location.path("/myposts");
+      })
+      .error(function (data, status, headers, config) {
+        switch(status) {
+          case 401:
+            self.message = "You must be authenticated!"
+              break;
+          case 500:
+            self.message = "Something went wrong!";
+            break;
+        }
+        console.log(data, status);
+      });
+  };
+
+  authController.prototype.logoutUser = function() {
+    var self = this;
+    this.http.get("/auth/logout")
+    .success(function (data, status, headers, config) {
+        console.log("Successfully logged out");
+        currentUser = false;
+        self.location.path("/");
+      })
+      .error(function (data, status, headers, config) {
+        switch(status) {
+          case 500:
+            self.message = "Something went wrong!";
+            break;
+        }
+        console.log(data, status);
+      });
+  };
+
+  var setUser = function(data) {
+    currentUser = data;
+  };
+
+  authController.prototype.isLoggedIn = function() {
+    console.log(currentUser);
+    return(currentUser)? currentUser : false;
+  };
+
+
 };
 
-
-
-
-
-
-};
-
-angular.module('app.controllers', ['app.directives'])
+angular.module('app.controllers', [])
   .controller('authController', authController)
   .controller('myPostsController', myPostsController)
 

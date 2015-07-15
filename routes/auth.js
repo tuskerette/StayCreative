@@ -50,16 +50,15 @@ router.route('/register')
 
 router.route('/login')
   .get(function(req, res, next){
-    res.json({user: req.user});
+    res.json(req.user);
   })
   .post(passport.authenticate('local'), function(req, res) {
-    res.json({user: req.user})
+    res.json(req.user)
     console.log("req.user is " + req.user);
 });
 
 router.all('/logout', function(req, res, next) {
   req.logout();
-  // console.log("successfully logged out");
   res.json({user: "user, you logged out successfully"});
 });
 

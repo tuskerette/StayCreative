@@ -1,8 +1,9 @@
-  if (user)
-    <li>You are logged in as {{ user.username }}</li>
-    <li><a href="#/auth/logout">Logout</a></li>
-  else
-    <li>
-      <a href="#login">Login</a></li>
-        or
+<!--
+  <ul ng-controller="authController as authCtrl">
+
+    <li ng-show="authCtrl.isLoggedIn()">You are logged in as {{ authCtrl.isLoggedIn().currentUser }}</li>
+    <li><a href="#" ng-click="authCtrl.logoutUser()">Logout</a></li>
+    <li><a href="#login" ng-init="authCtrl.isLoggedIn()">Login</a></li>
     <li><a href="#register">Register</a></li>
+  </ul> -->
+
