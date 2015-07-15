@@ -32,9 +32,18 @@
         templateUrl: 'app/views/settings.html'
       }).otherwise({redirectTo: '/'});
     });
+  app.config(function($httpProvider) {
+    $httpProvider.defaults.withCredentials = true;
+  });
 })();
 
 // $(document).ready(function() {
 //  $('.modal-trigger').leanModal();
 // });
+
+// .config(['$httpProvider',
+//    function($httpProvider) {
+//      $httpProvider.defaults.withCredentials = true;
+//    }
+//  ])
 

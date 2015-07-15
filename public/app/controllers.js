@@ -17,7 +17,8 @@ myPostsController.prototype.addPost = function() {
     this.http.post("/myposts/add", self.newPost)
     .success(function (data, status, headers, config) {
       console.log("Successfully posted");
-      self.onePost = data;
+      // self.onePost = data;
+      self.newPost = data;
       self.location.path("/myposts/" + data._id);
     })
     .error(function (data, status, headers, config) {
@@ -167,7 +168,7 @@ this.http = $http;
         console.log("Successfully logged in");
         self.returningUser = data;
         setUser(self.returningUser);
-        self.location.path("/myposts");
+        self.location.path("/list");
       })
       .error(function (data, status, headers, config) {
         switch(status) {
