@@ -24,9 +24,9 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down" ng-controller="authController as authCtrl">
         <li><a href="#about">About</a></li>
         <li ng-show="authCtrl.isLoggedIn()">Hello {{ authCtrl.isLoggedIn().username }}!</li>
-        <li><a href="#" ng-click="authCtrl.logoutUser()">Logout</a></li>
-        <li><a href="#login">Login</a></li>
-        <li><a href="#register">Register</a></li>
+        <li><a href="#" ng-click="authCtrl.logoutUser()" ng-show="authCtrl.isLoggedIn()">Logout</a></li>
+        <li><a href="#login" ng-hide="authCtrl.isLoggedIn()">Login</a></li>
+        <li><a href="#register" ng-hide="authCtrl.isLoggedIn()">Register</a></li>
 
 
       </ul>
