@@ -205,7 +205,7 @@ this.http = $http;
   };
 
   authController.prototype.isLoggedIn = function() {
-    console.log(currentUser);
+    // console.log(currentUser);
     return(currentUser)? currentUser : false;
   };
 
