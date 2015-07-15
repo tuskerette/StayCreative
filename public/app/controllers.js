@@ -17,7 +17,6 @@ myPostsController.prototype.addPost = function() {
     this.http.post("/myposts/add", self.newPost)
     .success(function (data, status, headers, config) {
       console.log("Successfully posted");
-      // self.onePost = data;
       self.newPost = data;
       self.location.path("/myposts/" + data._id);
     })

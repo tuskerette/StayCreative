@@ -4,7 +4,11 @@ var mongoose = require('mongoose'),
 
 var Account = new Schema({
   firstName: String,
-  email: String
+  email: String,
+  userPosts: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'MyPost'
+      }]
 });
 
 Account.plugin(passportLocalMongoose);

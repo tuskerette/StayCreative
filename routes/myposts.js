@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var MyPosts = require('../models/myposts');
+var Account = require('../models/account');
 
 // GET request to show all the posts
 router.get('/myposts', function(req, res) {
@@ -18,13 +19,24 @@ router.post('/add', function(req, res) {
     MyPosts.create({
       characterName: req.body.characterName,
       characterBio: req.body.characterBio,
-      characterPhotoUrl: req.body.characterPhoto,
+      characterPhotoUrl: req.body.characterPhotoUrl,
       invention: req.body.invention,
       postedDate: Date.now()
     },function(err, mypost) {
       if(err) {
         res.status(500).send("Error saving new post: " + err);
       } else {
+        // console.log("the current user is, see below");
+        // console.log(req.user._id);
+        Account.findByIdAndUpdate(req.user._id, { $push: {userPosts: mypost._id} }, function(err, user) {
+          if(err) {
+            console.log("error");
+          } else {
+            console.log("saved post id to user");
+
+            // user.userPosts.push(mypost._id);
+          }
+        })
         res.json(mypost);
       }
     });

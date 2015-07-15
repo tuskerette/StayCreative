@@ -41,9 +41,5 @@
 //  $('.modal-trigger').leanModal();
 // });
 
-// .config(['$httpProvider',
-//    function($httpProvider) {
-//      $httpProvider.defaults.withCredentials = true;
-//    }
-//  ])
+
 
