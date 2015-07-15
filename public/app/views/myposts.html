@@ -2,14 +2,12 @@
   <a href="#newpost">Enter a New Post</a><br />
   <br />
   <br />
-  <br />
   <h4>All my posts</h4>
   <!-- Search: <input type="search" ng-model="searchbox" placeholder="Search..."> -->
-  <br />
-  <br />
-  <br />
+  <h3 ng-show="myPostsCtrl.myPosts.error">{{myPostsCtrl.myPosts.error}}</h3>
+
   <!-- <div ng-repeat="post in myPostsCtrl.myPosts | orderBy:'postedDate':!reverse | filter:searchbox"> -->
-  <div ng-repeat="post in myPostsCtrl.myPosts | orderBy:'postedDate':!reverse">
+  <div ng-hide="myPostsCtrl.myPosts.error" ng-repeat="post in myPostsCtrl.myPosts track by $index | orderBy:'postedDate':!reverse ">
     <ul>
       <li><h5>Character name: {{post.characterName}}</h5></li>
       <li>Character bio: {{post.characterBio}}</li>
@@ -19,6 +17,7 @@
       <li ng-hide="!post.editedDate">Edited on: {{post.editedDate | date:'medium' }}</li>
     </ul>
     <a href="#myposts/{{post._id}}">Continue reading</a>
+
     <hr />
   </div>
 

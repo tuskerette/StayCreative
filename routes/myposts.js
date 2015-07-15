@@ -5,13 +5,27 @@ var Account = require('../models/account');
 
 // GET request to show all the posts
 router.get('/myposts', function(req, res) {
-  MyPosts.find(function(err, myposts) {
-    if(err) {
-      res.status(500).send("Error finding all posts: " + err);
-    } else {
-      res.json(myposts);
-    }
-  })
+
+  if(req.user){
+    Account.findById(req.user._id, function(err, user) {
+      if(err) {
+        console.log("error getting the user");
+      } else {
+        console.log("we found the user " + user);
+        MyPosts.find({
+          _id: {$in: user.userPosts}
+        }, function(err, posts) {
+          if(err) {
+            console.error(err);
+          } else {
+            res.json(posts);
+          }
+        })
+      };
+    })
+  } else {
+    res.json({error: "you must be authenticated to see your posts"});
+  }
 });
 
 // POST request to add a new post to the db.
@@ -26,15 +40,11 @@ router.post('/add', function(req, res) {
       if(err) {
         res.status(500).send("Error saving new post: " + err);
       } else {
-        // console.log("the current user is, see below");
-        // console.log(req.user._id);
         Account.findByIdAndUpdate(req.user._id, { $push: {userPosts: mypost._id} }, function(err, user) {
           if(err) {
             console.log("error");
           } else {
-            console.log("saved post id to user");
-
-            // user.userPosts.push(mypost._id);
+            console.log("saved post id to user array userPosts");
           }
         })
         res.json(mypost);
