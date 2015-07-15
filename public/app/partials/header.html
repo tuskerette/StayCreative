@@ -1,0 +1,14 @@
+<nav>
+    <div class="nav-wrapper">
+      <a href="#welcome" class="brand-logo">Stay Creative</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down" ng-controller="authController as authCtrl">
+        <li><a href="#about">About</a></li>
+        <li ng-show="authCtrl.isLoggedIn()"><a href="#list">My posts</a></li>
+        <!-- <li ng-show="authCtrl.isLoggedIn()"><a href="#settings">My settings</a></li> -->
+        <li ng-show="authCtrl.isLoggedIn()"><a href="#list">Hello {{ authCtrl.isLoggedIn().username }}!</a></li>
+        <li><a href="#" ng-click="authCtrl.logoutUser()" ng-show="authCtrl.isLoggedIn()">Logout</a></li>
+        <li><a href="#login" ng-show="!authCtrl.isLoggedIn()">Login</a></li>
+        <li><a href="#register" ng-show="!authCtrl.isLoggedIn()">Register</a></li>
+      </ul>
+    </div>
+  </nav>

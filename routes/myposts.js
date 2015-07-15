@@ -3,9 +3,17 @@ var router = express.Router();
 var MyPosts = require('../models/myposts');
 var Account = require('../models/account');
 
+var isAuthenticated = function(req, res, next) {
+  if (req.isAuthenticated()){
+    return next();
+  } else {
+    res.status(401);
+    res.end();
+  }
+};
+
 // GET request to show all the posts
 router.get('/myposts', function(req, res) {
-
   if(req.user){
     Account.findById(req.user._id, function(err, user) {
       if(err) {
@@ -24,12 +32,12 @@ router.get('/myposts', function(req, res) {
       };
     })
   } else {
-    res.json({error: "you must be authenticated to see your posts"});
+    res.json({error: "you must be authenticated to see the posts"})
   }
 });
 
 // POST request to add a new post to the db.
-router.post('/add', function(req, res) {
+router.post('/add', isAuthenticated, function(req, res) {
     MyPosts.create({
       characterName: req.body.characterName,
       characterBio: req.body.characterBio,
@@ -54,7 +62,7 @@ router.post('/add', function(req, res) {
 
 
 // Routes for post by :id
-router.route('/:mypost_id')
+router.route('/:mypost_id', isAuthenticated)
   .all(function(req, res, next) {
     res.locals.mypost_id = req.params.mypost_id;
 
