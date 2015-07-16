@@ -3,7 +3,7 @@
       <li><h5>Character name: {{ myPostsCtrl.onePost.characterName }}</h5></li>
       <li>Character bio: {{ myPostsCtrl.onePost.characterBio }}</li>
       <li>Invention: {{ myPostsCtrl.onePost.invention }}</li>
-      <li>Character picture: {{ myPostsCtrl.onePost.characterPhotoUrl }} </li>
+      <li>Character picture: <br/><img ng-src="{{myPostsCtrl.onePost.characterPhotoUrl}}"></li>
       <li>Posted on: {{ myPostsCtrl.onePost.postedDate | date:'medium'}}</li>
       <li ng-hide="!myPostsCtrl.onePost.editedDate">Edited on: {{ myPostsCtrl.onePost.editedDate | date:'medium' }}</li>
     </ul>
