@@ -16,11 +16,14 @@
   <!-- <button id="button" onclick="document.querySelector('input').click()">Upload Picture</button> -->
   <div id="result">
     <div id="info">
-    <div id="link">
-      <input id="characterPhotoUrl" name="myPostsCtrl.newPost.characterPhotoUrl" ng-model="myPostsCtrl.newPost.characterPhotoUrl" required/>
-    </div>
+    <div id="link" ng-model="myPostsCtrl.newPost.characterPhotoUrl">
+
     <!-- <input id="characterPhotoUrl" name="myPostsCtrl.newPost.characterPhotoUrl" ng-model="myPostsCtrl.newPost.characterPhotoUrl" /> -->
+    <span ng-bind="myPostsCtrl.newPost.characterPhotoUrl"></span>
+
+
   </div>
+
         <!-- <div id="link-to-image"></div> -->
   <div id="imagePreview"></div>
 

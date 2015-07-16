@@ -33,7 +33,7 @@ function upload(file) {
         /* Image Preview */
         // document.getElementById("result").style.display = "inline";
         // document.getElementById("link-to-image").style.background = "url(" + imageLink + ") center center no-repeat";
-        console.log(imageLink);
+
         $('#characterPhotoUrl').val("" +imageLink+ "");
         $('#imagePreview').html("<img src=" + imageLink + ">");
         document.body.className = "uploaded";
