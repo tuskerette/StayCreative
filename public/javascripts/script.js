@@ -34,7 +34,7 @@ function upload(file) {
         // document.getElementById("result").style.display = "inline";
         // document.getElementById("link-to-image").style.background = "url(" + imageLink + ") center center no-repeat";
 
-        $('#characterPhotoUrl').val("" +imageLink+ "");
+        $('#characterPhotoUrl').html("{{myPostsCtrl.newPost.characterPhotoUrl }}" +imageLink+ "");
         $('#imagePreview').html("<img src=" + imageLink + ">");
         document.body.className = "uploaded";
     };

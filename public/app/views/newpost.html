@@ -12,26 +12,12 @@
     <textarea name="invention" ng-model="myPostsCtrl.newPost.invention" required class="materialize-textarea"></textarea>
     <label for="invention">Invention</label>
   </div>
-  <input type="file" onchange="upload(this.files[0])">
-  <!-- <button id="button" onclick="document.querySelector('input').click()">Upload Picture</button> -->
-  <div id="result">
+  <input type="file" onchange="angular.element(this).scope().myPostsCtrl.uploadFile(this)">
     <div id="info">
-    <div id="link" ng-model="myPostsCtrl.newPost.characterPhotoUrl">
-
-    <!-- <input id="characterPhotoUrl" name="myPostsCtrl.newPost.characterPhotoUrl" ng-model="myPostsCtrl.newPost.characterPhotoUrl" /> -->
-    <span ng-bind="myPostsCtrl.newPost.characterPhotoUrl"></span>
-
-
-  </div>
-
-        <!-- <div id="link-to-image"></div> -->
+      <div id="link" >
+    </div>
   <div id="imagePreview"></div>
 
-
-  </div>
   <button class= "btn" ng-click="newPostForm.$valid && myPostsCtrl.addPost()">Submit post</button>
 </form>
 
-BINDING EXAMPLES:
-{{myPostsCtrl.newPost.characterName}}
-{{myPostsCtrl.newPost.characterPhotoUrl}}
