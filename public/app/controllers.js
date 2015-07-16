@@ -1,6 +1,7 @@
 //Posts Controller
 var myPostsController = function($http, $routeParams, $location) {
   this.newPost = {};
+  this.newPost.characterPhotoUrl = "";
   this.myPosts = {};
   this.onePost = {};
   this.location = $location;
@@ -81,7 +82,7 @@ var self = this;
 this.http.delete("/myposts/" + postId)
   .success(function(data, status, header, config) {
     alert("Post successfully deleted");
-    self.location.path("/");
+    self.location.path("/list");
   })
   .error(function(data, status, headers, config) {
     switch(status) {

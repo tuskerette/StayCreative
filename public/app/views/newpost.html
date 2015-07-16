@@ -2,7 +2,7 @@
 <form name="newPostForm" class="col s12" novalidate>
   <div class="input-field col s6">
     <label for="characterName">Character Name</label>
-    <input type="text" name="characterName" ng-model="myPostsCtrl.newPost.characterName" required /><br />
+    <input type="text" name="characterName" ng-model="myPostsCtrl.newPost.characterName" required />
   </div>
   <div class="input-field col s6">
     <textarea name="characterBio" ng-model="myPostsCtrl.newPost.characterBio" required class="materialize-textarea"></textarea>
@@ -12,30 +12,23 @@
     <textarea name="invention" ng-model="myPostsCtrl.newPost.invention" required class="materialize-textarea"></textarea>
     <label for="invention">Invention</label>
   </div>
-  <button ng-click="newPostForm.$valid && myPostsCtrl.addPost()">Submit post</button>
-</form>
-
-<!-- characterPhotoUrl below -->
-<form action="#">
-  <div class="file-field input-field">
-    <input class="file-path validate" type="text"/>
-      <div class="btn">
-        <span>Picture Upload</span>
-        <input type="file" />
-      </div>
+  <input type="file" onchange="upload(this.files[0])">
+  <!-- <button id="button" onclick="document.querySelector('input').click()">Upload Picture</button> -->
+  <div id="result">
+    <div id="info">
+    <div id="link">
+      <input id="characterPhotoUrl" name="myPostsCtrl.newPost.characterPhotoUrl" ng-model="myPostsCtrl.newPost.characterPhotoUrl" required/>
     </div>
+    <!-- <input id="characterPhotoUrl" name="myPostsCtrl.newPost.characterPhotoUrl" ng-model="myPostsCtrl.newPost.characterPhotoUrl" /> -->
+  </div>
+        <!-- <div id="link-to-image"></div> -->
+  <div id="imagePreview"></div>
+
+
+  </div>
+  <button class= "btn" ng-click="newPostForm.$valid && myPostsCtrl.addPost()">Submit post</button>
 </form>
 
-
-<br />
-<br />
-<br />
-<hr />
-
-TEMPORARY BINDING<br />
-To make sure this is working<br />
-Results: <br />
-{{myPostsCtrl.newPost.characterName}}<br />
-{{myPostsCtrl.newPost.characterBio}}<br />
-{{myPostsCtrl.newPost.invention}}<br />
-
+BINDING EXAMPLES:
+{{myPostsCtrl.newPost.characterName}}
+{{myPostsCtrl.newPost.characterPhotoUrl}}
