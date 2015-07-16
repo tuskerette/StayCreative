@@ -13,7 +13,7 @@ this.http = $http;
     .success(function (data, status, headers, config) {
         console.log("Successfully registered");
         self.newUser = data;
-        self.location.path("/myposts");
+        self.location.path("/firstaccess");
       })
       .error(function (data, status, headers, config) {
         switch(status) {
