@@ -8,7 +8,7 @@
       <li><h5>Character name: {{post.characterName}}</h5></li>
       <li>Character bio: {{post.characterBio}}</li>
       <li>Invention: {{post.invention}}</li>
-      <li>Character picture: <img ng-src="{{post.characterPhotoUrl}}"></li>
+      <li>Character picture: <br /><img ng-src="{{post.characterPhotoUrl}}"></li>
       <li>Posted on: {{post.postedDate | date:'medium' }}</li>
       <li ng-hide="!post.editedDate">Edited on: {{post.editedDate | date:'medium' }}</li>
     </ul>
