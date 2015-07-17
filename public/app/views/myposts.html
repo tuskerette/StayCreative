@@ -1,14 +1,14 @@
-  <h4>All my posts</h4>
+  <h3>My posts</h3>
   <!-- Search: <input type="search" ng-model="search" placeholder="Search..."> -->
   <h3 ng-show="myPostsCtrl.myPosts.error">{{myPostsCtrl.myPosts.error}}</h3>
 
   <!-- <div ng-repeat="post in myPostsCtrl.myPosts | orderBy:'postedDate':!reverse | filter:search"> -->
   <div ng-hide="myPostsCtrl.myPosts.error" ng-repeat="post in myPostsCtrl.myPosts  | orderBy:'postedDate':!reverse" >
     <ul>
-      <li><h5>Character name: {{post.characterName}}</h5></li>
-      <li>Character bio: {{post.characterBio}}</li>
-      <li>Invention: {{post.invention}}</li>
-      <li>Character picture: <br /><img ng-src="{{post.characterPhotoUrl}}"></li>
+      <li><h4>Character name: {{post.characterName}}</h4></li>
+      <li><h5>Character bio:</h5> {{post.characterBio}}</li>
+      <li><h5>Invention:</h5> {{post.invention}}</li>
+      <li><h5>Character picture:</h5> <img ng-src="{{post.characterPhotoUrl}}"></li>
       <li>Posted on: {{post.postedDate | date:'medium' }}</li>
       <li ng-hide="!post.editedDate">Edited on: {{post.editedDate | date:'medium' }}</li>
     </ul>
