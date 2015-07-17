@@ -1,16 +1,16 @@
 <h5>Edit post</h5>
 <form name="updatePostForm" class="col s12" novalidate>
   <div class="input-field col s6">
-    <label for="characterName">Character Name</label>
+    <label for="characterName" class="active">Character Name</label>
     <input type="text" name="characterName" ng-model="myPostsCtrl.onePost.characterName" required /><br />
   </div>
   <div class="input-field col s6">
     <textarea name="characterBio" ng-model="myPostsCtrl.onePost.characterBio" required class="materialize-textarea"></textarea>
-    <label for="characterBio">Character Bio</label>
+    <label for="characterBio" class="active">Character Bio</label>
   </div>
   <div class="input-field col s6">
     <textarea name="invention" ng-model="myPostsCtrl.onePost.invention" required class="materialize-textarea"></textarea>
-    <label for="invention">Invention</label>
+    <label for="invention" class="active">Invention</label>
   </div>
   <button ng-click="updatePostForm.$valid && myPostsCtrl.updatePost(myPostsCtrl.onePost._id, myPostsCtrl.onePost)">Update post</button>
 </form>
