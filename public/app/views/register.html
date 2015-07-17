@@ -1,16 +1,17 @@
-<h5>Register</h5>
-<form name="registerForm" class="col s12" novalidate>
-  <div class="input-field col s6">
-    <label for="username">User Name</label>
-    <input type="text" name="username" ng-model="authCtrl.newUser.username" required />
-  </div>
-  <div class="input-field col s6">
-    <input id="email" type="email" class="validate" ng-model="authCtrl.newUser.email" required>
-    <label for="email">Email Address</label>
-  </div>
-  <div class="input-field col s6">
-    <input id="password" type="password" class="validate" name="password" ng-model="authCtrl.newUser.password" required />
-    <label for="password">Password</label>
-  </div>
-  <button ng-click="registerForm.$valid && authCtrl.registerUser()">Register</button>
-</form>
+    <h5>Register</h5>
+    <form name="registerForm" class="col s12" novalidate>
+      <div class="input-field col s6">
+        <label for="username">User Name</label>
+        <input type="text" name="username" ng-model="authCtrl.newUser.username" required />
+      </div>
+      <div class="input-field col s6">
+        <input id="email" type="email" class="validate" ng-model="authCtrl.newUser.email" required>
+        <label for="email">Email Address</label>
+      </div>
+      <div class="input-field col s6">
+        <input id="password" type="password" class="validate" name="password" ng-model="authCtrl.newUser.password" required />
+        <label for="password">Password</label>
+      </div>
+      <button ng-click="registerForm.$valid && authCtrl.registerUser()">Register</button>
+    </form>
+
