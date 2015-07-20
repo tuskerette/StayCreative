@@ -1,4 +1,5 @@
 // Auth Controller
+(function authControllerIIFE(){
 var authController = function($http, $routeParams, $location) {
 var currentUser = false;
 this.newUser = {};
@@ -100,5 +101,5 @@ this.http = $http;
 };
 
 
-angular.module('app.authcontroller', [])
-  .controller('authController', authController)
+angular.module('stayCreative').controller('authController', authController)
+})();

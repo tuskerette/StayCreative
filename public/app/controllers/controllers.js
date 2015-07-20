@@ -1,12 +1,13 @@
 //Posts Controller
 (function myPostsControllerIIFE(){
-var myPostsController = function($http, $routeParams, $location, $scope) {
+var myPostsController = function($http, $routeParams, $location, $scope, appSettings, pdfFactory) {
   this.newPost = {};
   this.newPost.characterPhotoUrl = "";
   this.myPosts = {};
   this.onePost = {};
   this.location = $location;
   this.http = $http;
+  this.appSettings = appSettings;
 
   this.uploadFile = function(target){
     var file = target.files[0];
@@ -166,9 +167,7 @@ myPostsController.prototype.updatePost = function(postId, editedPost) {
 
 myPostsController.$inject = ['pdfFactory', 'appSettings'];
 
-angular.module('app.controllers', [])
-  .controller('myPostsController', myPostsController)
-
+angular.module('stayCreative').controller('myPostsController', myPostsController)
 
 })();
 
