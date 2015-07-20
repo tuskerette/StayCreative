@@ -78,14 +78,6 @@ myPostsController.prototype.getAllPosts = function() {
          self.myPosts = data;
        })
        .error(function(data, status, headers, config) {
-       //   switch(status) {
-       //     case 401:
-       //       self.message = "You must be authenticated!"
-       //      break;
-       //     case 500:
-       //       self.message = "Something went wrong!";
-       //      break;
-       // }
          console.log(data, status);
       });
 };
@@ -168,16 +160,6 @@ myPostsController.prototype.updatePost = function(postId, editedPost) {
     });
 };
 
-
-// myPostsController.prototype.watch = function() {
-//   var self = this;
-//   $watch(function(scope) { return scope.data.characterPhotoUrl },
-//               function(newValue, oldValue) {
-//                   document.getElementById("").innerHTML =
-//                       "" + newValue + "";
-//               }
-//              );
-// }
 
 angular.module('app.controllers', [])
   .controller('myPostsController', myPostsController)
