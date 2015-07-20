@@ -165,7 +165,7 @@ myPostsController.prototype.updatePost = function(postId, editedPost) {
 
 
 
-myPostsController.$inject = ['pdfFactory', 'appSettings'];
+myPostsController.$inject = ['$http','pdfFactory', 'appSettings'];
 
 angular.module('stayCreative').controller('myPostsController', myPostsController)
 

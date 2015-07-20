@@ -1,5 +1,5 @@
 (function stayCreativeAppIIFE() {
-  var app = angular.module('stayCreative', ['ngRoute', 'app.controllers', 'app.authcontroller', 'app.directives', 'pdfFactory']);
+  var app = angular.module('stayCreative', ['ngRoute']);
 
   app.config(function($routeProvider){
     $routeProvider

@@ -20,7 +20,7 @@
 
 pdfFactory.$inject = ['$http'];
 
-angular.module('stayCreative', []).factory('pdfFactory', pdfFactory);
+angular.module('stayCreative').factory('pdfFactory', pdfFactory);
 
 })();
 

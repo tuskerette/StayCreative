@@ -1,5 +1,5 @@
 // Create applicaton wide settings
-angular.module("stayCreative").value('appSettings', {
+angular.module('stayCreative').value('appSettings', {
   title: "Stay Creative Application",
   version: "1.0"
 });

@@ -1,4 +1,4 @@
-angular.module('app.directives', [])
+angular.module('stayCreative')
   .directive('customOnChange', [function(){
 
     return {
