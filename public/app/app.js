@@ -1,5 +1,5 @@
 (function stayCreativeAppIIFE() {
-  var app = angular.module('stayCreative', ['ngRoute', 'app.controllers', 'app.authcontroller', 'app.directives']);
+  var app = angular.module('stayCreative', ['ngRoute', 'app.controllers', 'app.authcontroller', 'app.directives', 'pdfFactory']);
 
   app.config(function($routeProvider){
     $routeProvider
@@ -40,9 +40,7 @@
   });
 })();
 
-// $(document).ready(function() {
-//  $('.modal-trigger').leanModal();
-// });
+
 
 
 

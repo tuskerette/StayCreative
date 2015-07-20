@@ -1,4 +1,5 @@
 //Posts Controller
+(function myPostsControllerIIFE(){
 var myPostsController = function($http, $routeParams, $location, $scope) {
   this.newPost = {};
   this.newPost.characterPhotoUrl = "";
@@ -37,6 +38,7 @@ var myPostsController = function($http, $routeParams, $location, $scope) {
     });
 
 };
+
 
 
   if($routeParams.id) {
@@ -161,8 +163,14 @@ myPostsController.prototype.updatePost = function(postId, editedPost) {
 };
 
 
+
+myPostsController.$inject = ['pdfFactory', 'appSettings'];
+
 angular.module('app.controllers', [])
   .controller('myPostsController', myPostsController)
+
+
+})();
 
 
 

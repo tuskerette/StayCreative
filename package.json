@@ -13,6 +13,7 @@
     "debug": "~2.2.0",
     "express": "~4.13.0",
     "express-session": "^1.11.3",
+    "html-pdf": "^1.2.1",
     "jade": "~1.11.0",
     "mongoose": "4.0.6",
     "morgan": "~1.6.1",
