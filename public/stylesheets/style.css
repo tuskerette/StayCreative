@@ -1,7 +1,15 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+nav {
+  background-color: #29b6f6;
 }
-a {
-  color: #00b7ff;
+footer.page-footer {
+  background-color: #29b6f6;
+}
+.btn {
+  background-color: #cddc39;
+}
+.btn:hover {
+  background-color: #b3e5fc;
+}
+p.img-card {
+  text-align: center;
 }

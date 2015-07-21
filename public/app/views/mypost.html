@@ -1,19 +1,24 @@
- <div class="row">
-  <div class="col s12 m6">
-    <ul>
-      <li><h4>Character name: {{ myPostsCtrl.onePost.characterName }}</h4></li>
-      <li><h5>Character bio:</h5> {{ myPostsCtrl.onePost.characterBio }}</li>
-      <li><h5>Invention:</h5> {{ myPostsCtrl.onePost.invention }}</li>
-      <li><h5>Character picture:</h5> <br/><img ng-src="{{myPostsCtrl.onePost.characterPhotoUrl}}"></li>
-      <li>Posted on: {{ myPostsCtrl.onePost.postedDate | date:'medium'}}</li>
-      <li ng-hide="!myPostsCtrl.onePost.editedDate">Edited on: {{ myPostsCtrl.onePost.editedDate | date:'medium' }}</li>
-    </ul>
-    <a href="#list">Back to my Posts</a>
-    <button ng-click="myPostsCtrl.editPost(myPostsCtrl.onePost._id)">Edit Post</button>
-    <button ng-click="myPostsCtrl.deletePost(myPostsCtrl.onePost._id)">Delete Post</button>
-
-  </div>
-</div>
+<div class="row">
+        <div class="col s12 m7">
+          <div class="card">
+            <div class="card-image">
+              <img ng-src="{{myPostsCtrl.onePost.characterPhotoUrl}}">
+              <span class="card-title">{{ myPostsCtrl.onePost.characterName }}</span>
+            </div>
+            <div class="card-content">
+              <p><h5>Character bio:</h5> {{ myPostsCtrl.onePost.characterBio }}</p>
+              <p><h5>Invention:</h5> {{ myPostsCtrl.onePost.invention }}</p><br />
+              <p><h6>Posted on:</h6> {{ myPostsCtrl.onePost.postedDate | date:'medium'}}</p>
+              <p ng-hide="!myPostsCtrl.onePost.editedDate"><h6>Edited on:</h6> {{ myPostsCtrl.onePost.editedDate | date:'medium' }}</p>
+            </div>
+            <div class="card-action">
+              <a href="#list">Back</a>
+              <button class="waves-effect waves-light btn" ng-click="myPostsCtrl.editPost(myPostsCtrl.onePost._id)">Edit</button>
+              <button class="waves-effect waves-light btn" ng-click="myPostsCtrl.deletePost(myPostsCtrl.onePost._id)">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 <!-- ADD ARE YOU SURE YOU WANT TO DELETE -->
 <!-- Check the delete function both in the front end and back end. The post IDs are still in mongo, even though they are empty... -->

@@ -12,12 +12,23 @@
     <textarea name="invention" ng-model="myPostsCtrl.newPost.invention" required class="materialize-textarea"></textarea>
     <label for="invention">Invention</label>
   </div>
-  <input type="file" onchange="angular.element(this).scope().myPostsCtrl.uploadFile(this)">
-    <div id="info">
-      <div id="link" >
+  <div class="file-field input-field">
+    <div class="waves-effect waves-light btn">
+      <span>File Upload</span>
+      <input type="file" onchange="angular.element(this).scope().myPostsCtrl.uploadFile(this)">
+      <div id="info">
+        <div id="link">
+      </div>
+      <div id="imagePreview"></div>
     </div>
-  <div id="imagePreview"></div>
+  </div>
 
-  <button class= "btn" ng-click="newPostForm.$valid && myPostsCtrl.addPost()">Submit post</button>
+<!--   <input type="file" onchange="angular.element(this).scope().myPostsCtrl.uploadFile(this)">
+    <div id="info">
+      <div id="link">
+    </div>
+  <div id="imagePreview"></div> -->
+
+  <button class="waves-effect waves-light btn" ng-click="newPostForm.$valid && myPostsCtrl.addPost()">Submit post</button>
 </form>
 

@@ -8,5 +8,5 @@
     <input id="password" type="password" class="validate" name="password" ng-model="authCtrl.returningUser.password" required />
     <label for="password">Password</label>
   </div>
-  <button ng-click="loginForm.$valid && authCtrl.loginUser()">Login</button>
+  <button class="waves-effect waves-light btn" ng-click="loginForm.$valid && authCtrl.loginUser()">Login</button>
 </form>

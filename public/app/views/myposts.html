@@ -1,25 +1,20 @@
-<div class="row">
-  <div class="col s12 m6">
+<h3 ng-show="myPostsCtrl.myPosts.error">{{myPostsCtrl.myPosts.error}}</h3>
 
-  <h3>My posts</h3>
-  <!-- Search: <input type="search" ng-model="search" placeholder="Search..."> -->
-  <h3 ng-show="myPostsCtrl.myPosts.error">{{myPostsCtrl.myPosts.error}}</h3>
+  <div class="row">
+    <div ng-hide="myPostsCtrl.myPosts.error" ng-repeat="post in myPostsCtrl.myPosts  | orderBy:'postedDate':!reverse">
+        <div class="col s12 m4">
+          <div class="card light-blue lighten-1">
+            <div class="card-content white-text">
+              <span class="card-title">{{post.characterName}}</span>
+              <p class="img-card"><img ng-src="{{post.characterPhotoUrl}}" class="responsive-img"></p>
+              <p>Posted on: {{post.postedDate | date:'medium' }}</p>
+            </div>
+            <div class="card-action">
+              <a href="#myposts/{{post._id}}">Continue reading</a>
+            </div>
+          </div>
+        </div>
+      </div>
+<!-- Search: <input type="search" ng-model="search" placeholder="Search..."> -->
+<!-- <div ng-repeat="post in myPostsCtrl.myPosts | orderBy:'postedDate':!reverse | filter:search"> -->
 
-  <!-- <div ng-repeat="post in myPostsCtrl.myPosts | orderBy:'postedDate':!reverse | filter:search"> -->
-  <div ng-hide="myPostsCtrl.myPosts.error" ng-repeat="post in myPostsCtrl.myPosts  | orderBy:'postedDate':!reverse" >
-    <ul>
-      <li><h4>Character name: {{post.characterName}}</h4></li>
-      <li><h5>Character bio:</h5> {{post.characterBio}}</li>
-      <li><h5>Invention:</h5> {{post.invention}}</li>
-      <li><h5>Character picture:</h5> <img ng-src="{{post.characterPhotoUrl}}"></li>
-      <li>Posted on: {{post.postedDate | date:'medium' }}</li>
-      <li ng-hide="!post.editedDate">Edited on: {{post.editedDate | date:'medium' }}</li>
-    </ul>
-    <a href="#myposts/{{post._id}}">Continue reading</a>
-
-    <hr />
-  </div>
-  </div>
-</div>
-
-<!-- FIX THE SEARCH BAR -->
