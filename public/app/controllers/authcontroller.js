@@ -17,19 +17,12 @@ this.http = $http;
         self.location.path("/firstaccess");
       })
       .error(function (data, status, headers, config) {
-        switch(status) {
-          case 401:
-            self.message = "You must be authenticated!"
-              break;
-          case 500:
-            self.message = "Something went wrong!";
-            break;
-        }
         console.log(data, status);
       });
   };
 
   authController.prototype.loginUser = function() {
+    console.log("we are in the loginUser function");
     var self = this;
     this.http.post("/auth/login", self.returningUser)
     .success(function (data, status, headers, config) {
@@ -39,14 +32,6 @@ this.http = $http;
         self.location.path("/list");
       })
       .error(function (data, status, headers, config) {
-        switch(status) {
-          case 401:
-            self.message = "You must be authenticated!"
-              break;
-          case 500:
-            self.message = "Something went wrong!";
-            break;
-        }
         console.log(data, status);
       });
   };
@@ -60,11 +45,6 @@ this.http = $http;
         self.location.path("/");
       })
       .error(function (data, status, headers, config) {
-        switch(status) {
-          case 500:
-            self.message = "Something went wrong!";
-            break;
-        }
         console.log(data, status);
       });
   };
@@ -80,9 +60,9 @@ this.http = $http;
 
 
   var getUser = function() {
-    // console.log("we are in get user");
-      var url = '/auth/user';
-        return $http.get(url)
+   console.log("we are in get user");
+      // var url = '/auth/user';
+        return this.http.get('/auth/user')
           .success(function(res){
           if (res.message === "unAuthenticated"){
              // $location.path('/');
@@ -94,12 +74,12 @@ this.http = $http;
         });
       };
 
-
-  getUser();
+  // getUser();
 
 
 };
 
+authController.$inject = ['appSettings'];
 
 angular.module('stayCreative').controller('authController', authController)
 })();

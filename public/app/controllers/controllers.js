@@ -92,14 +92,6 @@ this.http.get("/myposts/" + postId)
       self.onePost = data;
      })
      .error(function(data, status, headers, config) {
-       switch(status) {
-         case 401:
-           self.message = "You must be authenticated!"
-          break;
-         case 500:
-           self.message = "Something went wrong!";
-          break;
-     }
        console.log(data, status);
     });
 };

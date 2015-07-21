@@ -27,9 +27,6 @@
       }).when('/login', {
         controller: 'authController as authCtrl',
         templateUrl: 'app/views/login.html'
-      }).when('/settings', {
-        controller: 'authController as authCtrl',
-        templateUrl: 'app/views/settings.html'
       }).when('/firstaccess', {
         controller: 'authController as authCtrl',
         templateUrl: 'app/views/firstaccess.html'
