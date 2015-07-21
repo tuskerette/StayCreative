@@ -29,7 +29,7 @@ var myPostsController = function($http, $routeParams, $location, $scope) {
         var link = response.upload.links.imgur_page;
         document.querySelector("#link").href = link;
         document.querySelector("#link").innerHTML = link;
-        var imageLink = ""+document.querySelector("#link").innerHTML.replace("http://imgur.com/", "http://i.imgur.com/")+".jpg";
+        var imageLink = ""+document.querySelector("#link").innerHTML.replace("https://imgur.com/", "https://i.imgur.com/")+".jpg";
         controller.newPost.characterPhotoUrl = imageLink;
         $('#characterPhotoUrl').html("{{myPostsCtrl.newPost.characterPhotoUrl }}" +imageLink+ "");
         $('#imagePreview').html("<img src=" + imageLink + ">");
