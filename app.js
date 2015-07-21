@@ -9,7 +9,7 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
-var routes = require('./routes/index');
+// var routes = require('./routes/index');
 var myposts = require('./routes/myposts');
 var auth = require('./routes/auth');
 
