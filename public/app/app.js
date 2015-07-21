@@ -15,7 +15,7 @@
       }).when('/newpost', {
         controller: 'myPostsController as myPostsCtrl',
         templateUrl: 'app/views/newpost.html'
-      }).when('/myposts/:id', {
+      }).when('/list/:id', {
         controller: 'myPostsController as myPostsCtrl',
         templateUrl: 'app/views/mypost.html'
       }).when('/edit/:id', {

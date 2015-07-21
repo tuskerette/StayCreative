@@ -44,11 +44,11 @@ var myPostsController = function($http, $routeParams, $location, $scope, appSett
 
 
 
- if($routeParams.id) {
+ // if($routeParams.id) {
   this.getOnePost($routeParams.id);
- } else {
+ // } else {
   this.getAllPosts();
- };
+ // };
 
 
 };
@@ -82,7 +82,7 @@ myPostsController.prototype.getAllPosts = function() {
 
 myPostsController.prototype.getOnePost = function(postId) {
   var self = this;
-  console.log("the postId number is");
+  console.log("we are in the getOnePost func and the postId number is");
   console.log(postId);
   this.http.get("/myposts/" + postId)
     .success(function(data, status, headers, config) {

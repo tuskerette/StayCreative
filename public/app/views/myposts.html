@@ -15,8 +15,8 @@
       <li>Posted on: {{post.postedDate | date:'medium' }}</li>
       <li ng-hide="!post.editedDate">Edited on: {{post.editedDate | date:'medium' }}</li>
     </ul>
-    <a href="#myposts/{{post._id}}">Continue reading</a>
-
+    <a href="#list/{{post._id}}">Continue reading</a>
+    <!-- <button ng-click="myPostsCtrl.getOnePost(post._id)">Continue Reading</button> -->
     <hr />
   </div>
   </div>
