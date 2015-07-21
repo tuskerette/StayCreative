@@ -42,6 +42,6 @@
     "karma": "0.12.*",
     "mocha": "2.0.*",
     "sinon": "1.11.*",
-    "supervisor": "*"
+    "supervisor": "0.7.1"
   }
 }
