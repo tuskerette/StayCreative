@@ -20,7 +20,7 @@ var myPostsController = function($http, $routeParams, $location, $scope) {
     var controller = this;
     $.ajax({
       method: 'POST',
-      url: "http://api.imgur.com/2/upload.json",
+      url: "https://api.imgur.com/2/upload.json",
       data: fd,
       processData: false,
       contentType: false
