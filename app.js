@@ -53,7 +53,7 @@ passport.use(Account.createStrategy());
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
-app.use('/', routes);
+// app.use('/', routes);
 app.use('/myposts/', myposts);
 app.use('/auth/', auth);
 
