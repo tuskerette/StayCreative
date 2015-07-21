@@ -38,15 +38,18 @@ var myPostsController = function($http, $routeParams, $location, $scope, appSett
         document.body.className = "uploaded";
     });
 
+
+
 };
 
 
 
-  if($routeParams.id) {
-    this.getOnePost($routeParams.id);
-  } else {
-    this.getAllPosts();
-  };
+ if($routeParams.id) {
+  this.getOnePost($routeParams.id);
+ } else {
+  this.getAllPosts();
+ };
+
 
 };
 
@@ -60,14 +63,6 @@ myPostsController.prototype.addPost = function() {
       self.location.path("/myposts/" + data._id);
     })
     .error(function (data, status, headers, config) {
-      switch(status) {
-        case 401:
-          self.message = "You must be authenticated!"
-            break;
-        case 500:
-          self.message = "Something went wrong!";
-          break;
-      }
       console.log(data, status);
     });
 };
@@ -75,24 +70,29 @@ myPostsController.prototype.addPost = function() {
 
 
 myPostsController.prototype.getAllPosts = function() {
-    var self = this;
-     this.http.get("/myposts/myposts")
-       .success(function(data, status, headers, config) {
-         self.myPosts = data;
-       })
-       .error(function(data, status, headers, config) {
-         console.log(data, status);
+  var self = this;
+    this.http.get("/myposts/myposts")
+      .success(function(data, status, headers, config) {
+        self.myPosts = data;
+      })
+      .error(function(data, status, headers, config) {
+        console.log(data, status);
       });
 };
 
 myPostsController.prototype.getOnePost = function(postId) {
-var self = this;
-this.http.get("/myposts/" + postId)
-  .success(function(data, status, headers, config) {
+  var self = this;
+  console.log("the postId number is");
+  console.log(postId);
+  this.http.get("/myposts/" + postId)
+    .success(function(data, status, headers, config) {
+      console.log("the data on success is ");
+      console.log(self.onePost);
       self.onePost = data;
-     })
-     .error(function(data, status, headers, config) {
-       console.log(data, status);
+    })
+    .error(function(data, status, headers, config) {
+      console.log(data, status);
+      console.log("there is an error in getting the single post");
     });
 };
 

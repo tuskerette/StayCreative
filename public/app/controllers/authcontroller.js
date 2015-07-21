@@ -79,7 +79,7 @@ this.http = $http;
 
 };
 
-authController.$inject = ['appSettings'];
+// authController.$inject = ['appSettings'];
 
 angular.module('stayCreative').controller('authController', authController)
 })();
