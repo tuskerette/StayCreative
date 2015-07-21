@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/.bin/supervisor bin/www",
+    "start": "node  bin/www",
     "test": "node node_modules/.bin/mocha -u tdd",
     "karma": "node node_modules/karma/bin/karma start --single-run"
   },
