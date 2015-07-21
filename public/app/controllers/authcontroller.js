@@ -60,21 +60,21 @@ this.http = $http;
 
 
   var getUser = function() {
-   console.log("we are in get user");
+    console.log("we are in get user");
       // var url = '/auth/user';
         return this.http.get('/auth/user')
           .success(function(res){
-          if (res.message === "unAuthenticated"){
-             // $location.path('/');
-          } else {
+          // if (res.message === "unAuthenticated"){
+          //    // $location.path('/');
+          // } else {
             setUser(res);
-          }
+          // }
         }).error(function(err){
             // $location.path('/');
         });
       };
 
-  // getUser();
+   // getUser();
 
 
 };
