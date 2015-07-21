@@ -13,7 +13,7 @@ var routes = require('./routes/index');
 var myposts = require('./routes/myposts');
 var auth = require('./routes/auth');
 
-var MongoURI = process.env.MONGO_URI || 'mongodb://localhost/staycreative';
+var MongoURI = process.env.MONGOLAB_URI || 'mongodb://localhost/staycreative';
 mongoose.connect(MongoURI, function(err, res) {
     if(err) {
         console.log('ERROR connecting to: ' + MongoURI + '. ' + err);
