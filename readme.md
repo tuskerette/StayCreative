@@ -1,7 +1,7 @@
 Stay Creative
 =============
 
-### Developed by Valeria Graffeo, [tuskerette](http://www.tuskerette.com).
+### Developed by Valeria Graffeo @ [tuskerette](http://www.tuskerette.com).
 
 ### July 2015 Version 0.1.0
 
@@ -24,7 +24,7 @@ At the end you will have a wide and fun collection of characters.
 
 ### Future development
 You will be able to export the posts in PDF and send the file to your friends, upload it on your e-reader, or even print it in paper, xerox it and turn it into a fanzine.
-(partially implemented in the banch pdfsecond)
+(partially implemented in the branch pdfsecond using the npm module html-pdf: HTML to PDF converter that uses phantomjs)
 
 
 
