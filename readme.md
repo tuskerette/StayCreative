@@ -1,11 +1,13 @@
 Stay Creative
 =============
 
-Developed by Valeria Graffeo. July 2015 Version 0.1.0
------------------------------------------------------
+### Developed by Valeria Graffeo, [tuskerette](http://www.tuskerette.com).
+
+### July 2015 Version 0.1.0
+
 
 ### Link
-The app is visible [here](https://staycreative.herokuapp.com/)
+The app is visible [here](https://staycreative.herokuapp.com/).
 It is hosted on Heroku, please be patient the first time you load the app.
 
 
