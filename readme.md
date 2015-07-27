@@ -24,7 +24,7 @@ At the end you will have a wide and fun collection of characters.
 
 ### Future development
 You will be able to export the posts in PDF and send the file to your friends, upload it on your e-reader, or even print it in paper, xerox it and turn it into a fanzine.
-(partially implemented in the banch pdf)
+(partially implemented in the banch pdfsecond)
 
 
 
