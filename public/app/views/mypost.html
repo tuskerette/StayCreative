@@ -9,12 +9,12 @@
               <p><h5>Character bio:</h5> {{ myPostsCtrl.onePost.characterBio }}</p>
               <p><h5>Invention:</h5> {{ myPostsCtrl.onePost.invention }}</p><br />
               <p><h6>Posted on:</h6> {{ myPostsCtrl.onePost.postedDate | date:'medium'}}</p>
-              <p ng-hide="!myPostsCtrl.onePost.editedDate"><h6>Edited on:</h6> {{ myPostsCtrl.onePost.editedDate | date:'medium' }}</p>
+              <p ng-show="myPostsCtrl.onePost.editedDate">Edited on: {{ myPostsCtrl.onePost.editedDate | date:'medium' }}</p>
             </div>
             <div class="card-action">
               <a href="#list">Back</a>
               <button class="waves-effect waves-light btn" ng-click="myPostsCtrl.editPost(myPostsCtrl.onePost._id)">Edit</button>
-              <button class="waves-effect waves-light btn" ng-click="myPostsCtrl.deletePost(myPostsCtrl.onePost._id)">Delete</button>
+              <button class="waves-effect waves-light btn red darken-1" ng-click="myPostsCtrl.deletePost(myPostsCtrl.onePost._id)">Delete</button>
             </div>
           </div>
         </div>
